@@ -1,7 +1,9 @@
-var daydream = require('daydream-node');
+var daydream = require('daydream-node')();
 
-if(daydream.isClickDown){
-    console.log('clicking down!!');
-} else {
-    console.log('not clicking down...');
-}
+daydream.onStateChange(function(data){
+    if(data.isClickDown){
+        console.log('clicking down');
+    } else {
+        console.log('not cliking down');
+    }
+})

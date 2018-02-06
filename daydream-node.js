@@ -1,3 +1,7 @@
+/**
+ * @author Charlie Gerard / https://charliegerard.github.io/
+ */
+
 var noble = require("noble");
 
 var daydreamDeviceName = "Daydream controller";
@@ -7,7 +11,7 @@ var daydreamMainCharacteristicUuid = "0000000110001000800000805f9b34fb";
 
 var state = {};
 
-function daydreamController(){
+function DaydreamController(){
   noble.on('stateChange', function(state) {
     if (state === 'poweredOn') {
         noble.startScanning();
@@ -33,7 +37,6 @@ function explore(peripheral){
   });
 
   peripheral.connect(function(error){
-    console.log(state)
     peripheral.discoverServices([daydreamPrimaryServiceUuid], function(error, services){
         if(services.length > 0){
             var primaryService = services[0];
@@ -93,6 +96,8 @@ function explore(peripheral){
 
                 state.xTouch = ((data.readUInt8(16) & 0x1F) << 3 | (data.readUInt8(17) & 0xE0) >> 5) / 255.0;
                 state.yTouch = ((data.readUInt8(17) & 0x1F) << 3 | (data.readUInt8(18) & 0xE0) >> 5) / 255.0;
+                
+                onStateChangeCallback(state);
               });
   
               mainCharacteristic.subscribe(function(error) {
@@ -102,9 +107,17 @@ function explore(peripheral){
           }
       });
   });
+
+  function onStateChangeCallback(){}
+
+  return {
+    onStateChange: function ( callback ) {
+      onStateChangeCallback = callback;
+    }
+  }
 }
 
-daydreamController();
-
-
+module.exports = function(){
+  return DaydreamController();
+}
 

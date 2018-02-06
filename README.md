@@ -9,6 +9,7 @@ Quick Node.js module to connect to the Daydream controller and receive all data.
 
 ```
 npm install
+node examples/simple.js
 ```
 
 OR
@@ -22,11 +23,13 @@ npm install daydream-node
 *Make sure your Bluetooth connection is on.*
 
 ```javascript
-var daydream = require('daydream-node');
+var daydream = require('daydream-node')();
 
-if(daydream.isClickDown){
-    // do something
-}
+daydream.onStateChange(function(data){
+    if(data.isClickDown){
+        // do something
+    }
+});
 ```
 
 # Data available:
