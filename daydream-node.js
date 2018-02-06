@@ -106,13 +106,13 @@ function DaydreamController(){
             }
         });
     });
+  }
+
+  function onStateChangeCallback(){}
   
-    function onStateChangeCallback(){}
-  
-    return {
-      onStateChange: function ( callback ) {
-        onStateChangeCallback = callback;
-      }
+  return {
+    onStateChange: function ( callback ) {
+      onStateChangeCallback = callback;
     }
   }
 }
