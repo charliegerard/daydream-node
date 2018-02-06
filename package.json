@@ -1,6 +1,6 @@
 {
   "name": "daydream-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Node.js module to get data from the Daydream controller",
   "main": "index.js",
   "author": "Charlie Gerard <charlie.a.gerard@gmail.com>",
