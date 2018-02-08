@@ -1,4 +1,4 @@
-var daydream = require('daydream-node')();
+var daydream = require('../daydream-node')();
 
 daydream.onStateChange(function(data){
     if(data.isClickDown){
