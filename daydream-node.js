@@ -38,10 +38,10 @@ function DaydreamController(){
     peripheral.connect(function(error){
       peripheral.discoverServices([daydreamPrimaryServiceUuid], function(error, services){
           if(services.length > 0){
-              var mainCharacteristic = characteristics.filter(characteristic => characteristic.properties.includes('notify'))[0];
+              var primaryService = services[0];
 
               primaryService.discoverCharacteristics([daydreamMainCharacteristicUuid], function(error, characteristics){
-                var mainCharacteristic = characteristics[0];
+                var mainCharacteristic = characteristics.filter(characteristic => characteristic.properties.includes('notify'))[0];
 
                 mainCharacteristic.on("data", function(data, isNotification){
 
