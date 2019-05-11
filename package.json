@@ -1,11 +1,12 @@
 {
   "name": "daydream-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node.js module to get data from the Daydream controller",
   "main": "index.js",
   "author": "Charlie Gerard <charlie.a.gerard@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "noble": "^1.9.0"
+    "xpc-connection": "git://github.com/taoyuan/node-xpc-connection.git",
+    "noble-mac": "https://github.com/Timeular/noble-mac.git"
   }
 }

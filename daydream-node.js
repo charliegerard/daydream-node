@@ -2,7 +2,7 @@
  * @author Charlie Gerard / https://charliegerard.github.io/
  */
 
-var noble = require("noble");
+var noble = require("noble-mac");
 
 var daydreamDeviceName = "Daydream controller";
 var daydreamDeviceId = 'db7df138e6f4466aa8d01a514fa80991';
@@ -19,6 +19,8 @@ function DaydreamController(){
         noble.stopScanning();
     }
   });
+
+  noble.on('scanStart', () => console.log("Scan started."));
   
   noble.on('discover', function(peripheral){
     if(peripheral.advertisement.localName === daydreamDeviceName || peripheral.id === daydreamDeviceId){
