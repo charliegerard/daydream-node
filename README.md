@@ -1,11 +1,12 @@
 # Daydream-node
 
-Quick Node.js module to connect to the Daydream controller and receive all data.
+## Update: This package is no longer working with the updated version of the Daydream controller's firmware. If you have not updated it, it might still work.
 
+Quick Node.js module to connect to the Daydream controller and receive all data.
 
 # Installation:
 
-* Clone this repo and run:
+Clone this repo and run:
 
 ```
 npm install
@@ -20,15 +21,15 @@ npm install daydream-node
 
 # Usage:
 
-*Make sure your Bluetooth connection is on.*
+_Make sure your Bluetooth connection is on._
 
 ```javascript
-var daydream = require('daydream-node')();
+var daydream = require("daydream-node")();
 
-daydream.onStateChange(function(data){
-    if(data.isClickDown){
-        // do something
-    }
+daydream.onStateChange(function (data) {
+  if (data.isClickDown) {
+    // do something
+  }
 });
 ```
 
@@ -40,7 +41,7 @@ Buttons events:
 // returns true if the button is clicked.
 .isClickDown
 .isHomeDown
-.isAppDown 
+.isAppDown
 .isVolPlusDown
 .isVolMinusDown
 ```
@@ -80,4 +81,4 @@ Touch events:
 .yTouch
 ```
 
-This module was built based on [@mrdoob](https://github.com/mrdoob)'s previous work on the [same concept](https://github.com/mrdoob/daydream-controller.js/blob/master/DaydreamController.js) using Web Bluetooth. 
+This module was built based on [@mrdoob](https://github.com/mrdoob)'s previous work on the [same concept](https://github.com/mrdoob/daydream-controller.js/blob/master/DaydreamController.js) using Web Bluetooth.
